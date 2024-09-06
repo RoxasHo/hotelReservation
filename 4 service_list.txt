@@ -1,0 +1,18 @@
+insert into service_list (service_id, service_type, service_price, staff_id) values ('SI01', 'Cleaning', 30, 'EI013');
+insert into service_list (service_id, service_type, service_price, staff_id) values ('SI02', 'Breakfast', 30, 'EI002');
+insert into service_list (service_id, service_type, service_price, staff_id) values ('SI03', 'Lunch', 40, 'EI011');
+insert into service_list (service_id, service_type, service_price, staff_id) values ('SI04', 'Spa', 35, 'EI007');
+insert into service_list (service_id, service_type, service_price, staff_id) values ('SI05', 'Laundry', 5, 'EI001');
+insert into service_list (service_id, service_type, service_price, staff_id) values ('SI06', 'Dinner', 45, 'EI009');
+insert into service_list (service_id, service_type, service_price, staff_id) values ('SI07', 'Swimming', 25, 'EI008');
+insert into service_list (service_id, service_type, service_price, staff_id) values ('SI08', 'Extra bed', 10, 'EI003');
+insert into service_list (service_id, service_type, service_price, staff_id) values ('SI09', 'Cleaning', 30, 'EI004');
+insert into service_list (service_id, service_type, service_price, staff_id) values ('SI10', 'Breakfast', 30, 'EI009');
+insert into service_list (service_id, service_type, service_price, staff_id) values ('SI11', 'Lunch', 40, 'EI018');
+insert into service_list (service_id, service_type, service_price, staff_id) values ('SI12', 'Spa', 35, 'EI002');
+insert into service_list (service_id, service_type, service_price, staff_id) values ('SI13', 'Laundry', 5, 'EI010');
+insert into service_list (service_id, service_type, service_price, staff_id) values ('SI14', 'Dinner', 45, 'EI011');
+insert into service_list (service_id, service_type, service_price, staff_id) values ('SI15', 'Swimming', 25, 'EI017');
+insert into service_list (service_id, service_type, service_price, staff_id) values ('SI16', 'Extra bed', 10, 'EI012');
+insert into service_list (service_id, service_type, service_price, staff_id) values ('SI17', 'Cleaning', 30, 'EI014');
+insert into service_list (service_id, service_type, service_price, staff_id) values ('SI18', 'Breakfast', 30, 'EI009');

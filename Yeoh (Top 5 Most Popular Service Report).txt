@@ -1,0 +1,21 @@
+set linesize 120
+set pagesize 35
+
+COLUMN service_type FORMAT A20
+COLUMN num_reservations HEADING 'Number of Reservations'
+
+TTITLE LEFT 'Top 5 Most Popular Services' SKIP 2
+
+SELECT 
+    service_list.service_type, 
+    COUNT(reservation.reservation_id) AS num_reservations
+FROM 
+    service_list
+    INNER JOIN schedule ON service_list.service_id = schedule.service_id
+    INNER JOIN reservation ON schedule.schedule_id = reservation.schedule_id
+WHERE 
+    ROWNUM <= 6
+GROUP BY 
+    service_list.service_type
+ORDER BY 
+    num_reservations DESC;

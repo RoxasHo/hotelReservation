@@ -1,0 +1,23 @@
+set linesize 120
+set pagesize 120
+
+COLUMN staff_name FORMAT A20
+COLUMN total_sales FORMAT $999,999.99
+
+TTITLE LEFT 'Total Sales of Each Staff Department' SKIP 2
+
+BREAK ON staff_department SKIP 2
+COMPUTE SUM LABEL 'Department Total: ' OF total_sales ON staff_department
+
+SELECT 
+    staff_name, 
+    staff_department, 
+    SUM(service_price) AS total_sales
+FROM 
+    staff
+    JOIN service_list ON service_list.staff_id = staff.staff_id
+GROUP BY 
+    staff_name, 
+    staff_department
+ORDER BY 
+    total_sales DESC;

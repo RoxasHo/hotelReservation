@@ -1,0 +1,22 @@
+SET linesize 120
+SET pagesize 35
+
+ALTER SESSION SET NLS_DATE_FORMAT = 'dd/mm/yyyy';
+
+TTITLE CENTER 'The report of total reservation for years 2022.'
+BREAK ON TTITLE SKIP 1
+
+COLUMN revenue_month FORMAT A20
+COLUMN total_room_revenue FORMAT $9999.99
+COLUMN total_service_revenue FORMAT $9999.99
+COLUMN total_revenue FORMAT $9999.99
+
+SELECT TO_CHAR(r_date, 'mm-yyyy') AS revenue_month, SUM(room_price * total_day) AS total_room_revenue, SUM(service_price * total_day) AS total_service_revenue, SUM(room_price * total_day + service_price * total_day) AS total_revenue
+FROM reservation
+JOIN schedule ON reservation.schedule_id = schedule.schedule_id
+JOIN room_list ON schedule.room_id = room_list.room_id 
+JOIN room_type ON room_list.room_type_id = room_type.room_type_id
+JOIN service_list ON schedule.service_id = service_list.service_id
+WHERE r_date BETWEEN '01/01/2022' AND '31/12/2022'
+GROUP BY TO_CHAR(r_date, 'mm-yyyy')
+ORDER BY revenue_month;

@@ -1,0 +1,18 @@
+SET linesize 120
+SET pagesize 35
+
+ALTER SESSION SET NLS_DATE_FORMAT = 'dd/mm/yyyy';
+
+TTITLE CENTER 'Total numbers of reservation for December school holidays.' SKIP 2
+BREAK ON check_in_date SKIP 1
+
+COLUMN reservation_id FORMAT A20
+COLUMN check_in_date FORMAT A20
+COLUMN check_out_date FORMAT A20
+COLUMN schedule_id FORMAT A20
+COLUMN total_day FORMAT 99
+COLUMN price FORMAT $9999.99
+
+SELECT RES.reservation_id, check_in_date, check_out_date, RES.schedule_id, total_day, ((RT.room_price + SL.service_price) * RES.total_day) AS price
+FROM reservation RES, schedule SCH, room_list RL, room_type RT, service_list SL
+WHERE (RES.schedule_id = SCH.schedule_id) AND (SCH.room_id = RL.room_id) AND (RL.room_type_id = RT.room_type_id) AND (SCH.service_id = SL.service_id) AND (RES.check_out_date BETWEEN '10/12/2022' AND '31/12/2022') AND (RES.check_out_date BETWEEN '10/12/2022' AND '31/12/2022');

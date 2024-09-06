@@ -1,0 +1,25 @@
+Report 1: Report of Total Revenue for Each Room
+
+SET PAGESIZE 80 
+SET LINESIZE 45 
+TTITLE LEFT "Report of Total Revenue for Each Room" 
+COLUMN room_id HEADING 'Room ID' FORMAT A10 
+COLUMN revenue HEADING 'Total Revenue ($)' FORMAT $999,999.99
+
+SELECT 
+  room_list.room_id, 
+  SUM(
+    room_type.room_price + service_list.service_price
+  ) AS revenue 
+FROM 
+  room_list 
+  JOIN room_type ON room_list.room_type_id = room_type.room_type_id 
+  JOIN schedule ON room_list.room_id = schedule.room_id 
+  JOIN service_list ON schedule.service_id = service_list.service_id 
+GROUP BY 
+  room_list.room_id 
+ORDER BY 
+  room_list.room_id;
+
+TTITLE OFF
+CLEAR COLUMN

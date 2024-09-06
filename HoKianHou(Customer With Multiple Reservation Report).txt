@@ -1,0 +1,14 @@
+SET LINESIZE 50
+SET PAGESIZE 80
+
+TTITLE LEFT 'Customers with Multiple Reservations' SKIP 2 
+
+COLUMN cust_id FORMAT A10
+COLUMN cust_name FORMAT A20
+COLUMN num_reservations FORMAT 999
+
+SELECT customers.cust_id, customers.cust_name, COUNT(*) AS num_reservations
+  FROM customers
+  JOIN reservation ON customers.cust_id = reservation.cust_id
+  GROUP BY customers.cust_id, customers.cust_name
+  HAVING COUNT(*) > 1;

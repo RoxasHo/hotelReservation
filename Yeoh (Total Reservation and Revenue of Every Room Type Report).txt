@@ -1,0 +1,20 @@
+set linesize 120
+set pagesize 35
+
+COLUMN room_name FORMAT A20
+COLUMN num_reservations HEADING 'Number of Reservations' 
+COLUMN total_revenue HEADING 'Total Revenue' FORMAT $9,999,999.99
+
+TTITLE LEFT 'Total Reservation and Revenue per Room Type' SKIP 2
+
+SELECT 
+    room_type.room_name, 
+    COUNT(reservation.reservation_id) AS num_reservations, 
+    TO_CHAR(SUM(room_type.room_price * reservation.total_day), '$9,999,999.99') AS total_revenue
+FROM 
+    reservation
+    INNER JOIN schedule ON reservation.schedule_id = schedule.schedule_id
+    INNER JOIN room_list ON schedule.room_id = room_list.room_id
+    INNER JOIN room_type ON room_list.room_type_id = room_type.room_type_id
+GROUP BY 
+    room_type.room_name;

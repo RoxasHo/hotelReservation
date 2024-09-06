@@ -1,0 +1,24 @@
+Query/Report 3: Report of Cancelled Reservations
+
+SET PAGESIZE 35 
+SET LINESIZE 120
+TTITLE CENTER "Report of Cancelled Reservations"
+COLUMN reservation_id HEADING 'Reservation ID' FORMAT A12
+COLUMN cust_name HEADING 'Customer Name' FORMAT A20
+COLUMN phone_num HEADING 'Phone Number' FORMAT A15
+COLUMN cancel_reason HEADING 'Cancel Reason' FORMAT A55 
+
+SELECT 
+  res.reservation_id, 
+  c.cust_name, 
+  c.phone_num, 
+  cn.cancel_reason 
+FROM 
+  reservation res 
+  JOIN customers c ON res.cust_id = c.cust_id 
+  JOIN cancel cn ON res.cancel_id = cn.cancel_id 
+WHERE 
+  res.cancel_id IS NOT NULL;
+
+TTITLE OFF
+CLEAR COLUMN

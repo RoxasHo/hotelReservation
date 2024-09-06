@@ -1,0 +1,15 @@
+SET LINESIZE 120
+SET PAGESIZE 80
+TTITLE LEFT 'Customer That Booked for Long Term' SKIP 2
+
+COLUMN cust_id FORMAT A10
+COLUMN cust_name FORMAT A20
+COLUMN room_id FORMAT A10
+COLUMN num_days FORMAT 999
+
+SELECT c.cust_id, c.cust_name, s.room_id, 
+       ROUND(s.booked_date_until - s.booked_date_from) AS num_days
+FROM customers c
+JOIN reservation r ON c.cust_id = r.cust_id
+JOIN schedule s ON r.schedule_id = s.schedule_id
+WHERE s.booked_date_until - s.booked_date_from > 3;

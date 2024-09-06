@@ -1,0 +1,20 @@
+Query/Report 2: Report of Highest Revenue Based on Month
+
+SET PAGESIZE 45 
+SET LINESIZE 80
+TTITLE LEFT "Report of Highest Revenue Based on Month"
+COLUMN "Total Revenue" FORMAT $999,999.99 
+SELECT 
+  TO_CHAR(r.r_date, 'Month') AS "Month", 
+  TO_CHAR(SUM(r.total_day * rt.room_price), '$999,999,999.99') AS "Total Revenue" 
+FROM 
+  reservation r 
+  INNER JOIN schedule s ON r.schedule_id = s.schedule_id 
+  INNER JOIN room_list rl ON s.room_id = rl.room_id 
+  INNER JOIN room_type rt ON rl.room_type_id = rt.room_type_id 
+GROUP BY 
+  TO_CHAR(r.r_date, 'Month') 
+ORDER BY 
+  SUM(r.total_day * rt.room_price) DESC;
+TTITLE OFF
+CLEAR COLUMN

@@ -1,0 +1,4 @@
+insert into cancel (cancel_id, cancel_fee, cancel_reason) values ('CAN01', 50, '''No longer interested or need the booking''' );
+insert into cancel (cancel_id, cancel_fee, cancel_reason) values ('CAN02', 30, '''Business meeting or event canceled or rescheduled''');
+insert into cancel (cancel_id, cancel_fee, cancel_reason) values ('CAN03', 30, '''Financial difficulties or budget constraints''');
+insert into cancel (cancel_id, cancel_fee, cancel_reason) values ('CAN04', 50, '''Booking error or misunderstanding''');

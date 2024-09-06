@@ -1,0 +1,4 @@
+insert into room_type (room_type_id, room_name, room_price, room_description ) values ('RTN01', 'Single', 100, 'generic room with single-sized bed, personal bathroom and tv');
+insert into room_type (room_type_id, room_name, room_price, room_description ) values ('RTN02', 'Double', 120, 'medium-sized room with two single-sized bed/one queen-sized bed, personal bathroom and tv');
+insert into room_type (room_type_id, room_name, room_price, room_description ) values ('RTD01', 'Deluxe Single', 150, 'medium-sized room with one single-sized bed, personal bathroom, tv, a balcony view of the ocean');
+insert into room_type (room_type_id, room_name, room_price, room_description ) values ('RTD02', 'Deluxe Double', 200, 'medium-sized room with two single-sized bed/one queen-sized bed, personal bathroom, tv, a balcony view of the ocean');

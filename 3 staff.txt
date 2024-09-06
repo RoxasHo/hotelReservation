@@ -1,0 +1,18 @@
+insert into staff (staff_id, staff_name, staff_department, staff_contact) values ('EI001', 'Codie Tattershaw', 'Laundry', '+60 16-090 7194');
+insert into staff (staff_id, staff_name, staff_department, staff_contact) values ('EI002', 'Sherlock McAreavey', 'Restaurant', '+60 17-761 1632');
+insert into staff (staff_id, staff_name, staff_department, staff_contact) values ('EI003', 'Bertha Lghan', 'Lobby', '+60 16-584 4665');
+insert into staff (staff_id, staff_name, staff_department, staff_contact) values ('EI004', 'Aimil Phillipp', 'Room Cleaning', '+60 11-965 0674');
+insert into staff (staff_id, staff_name, staff_department, staff_contact) values ('EI005', 'Angy Kosiada', 'Cleaning', '+60 13-878 9286');
+insert into staff (staff_id, staff_name, staff_department, staff_contact) values ('EI006', 'Cecilia Caves', 'Facility', '+60 11-216 9878');
+insert into staff (staff_id, staff_name, staff_department, staff_contact) values ('EI007', 'Tobin O''Sheeryne', 'Spa', '+60 10-914 2259');
+insert into staff (staff_id, staff_name, staff_department, staff_contact) values ('EI008', 'Helen Hares', 'Swimming pool', '+60 15-624 7205');
+insert into staff (staff_id, staff_name, staff_department, staff_contact) values ('EI009', 'Melba Janssens', 'management', '+60 17-603 1327');
+insert into staff (staff_id, staff_name, staff_department, staff_contact) values ('EI010', 'Mercy Calvard', 'Laundry', '+60 18-655 8024');
+insert into staff (staff_id, staff_name, staff_department, staff_contact) values ('EI011', 'Sharia Pepon', 'Restaurant', '+60 17-886 6147');
+insert into staff (staff_id, staff_name, staff_department, staff_contact) values ('EI012', 'Cornelia Hellikes', 'Lobby', '+60 12-729 4672');
+insert into staff (staff_id, staff_name, staff_department, staff_contact) values ('EI013', 'Laure Hacun', 'Room Cleaning', '+60 12-001 3774');
+insert into staff (staff_id, staff_name, staff_department, staff_contact) values ('EI014', 'Antonetta MacKeig', 'Cleaning', '+60 14-833 0957');
+insert into staff (staff_id, staff_name, staff_department, staff_contact) values ('EI015', 'Michaelina Stiegars', 'Facility', '+60 19-137 2185');
+insert into staff (staff_id, staff_name, staff_department, staff_contact) values ('EI016', 'Karlyn Presman', 'Spa', '+60 11-009 6989');
+insert into staff (staff_id, staff_name, staff_department, staff_contact) values ('EI017', 'Earl Gernier', 'Swimming pool', '+60 13-333 6763');
+insert into staff (staff_id, staff_name, staff_department, staff_contact) values ('EI018', 'Mala Cridland', 'management', '+60 17-466 3043');

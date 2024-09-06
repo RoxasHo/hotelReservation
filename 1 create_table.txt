@@ -1,0 +1,73 @@
+CREATE TABLE customers (
+  cust_id VARCHAR(10) PRIMARY KEY,
+  cust_name VARCHAR(50),
+  email VARCHAR(50),
+  phone_num VARCHAR(20)
+);
+
+
+CREATE TABLE room_type (
+  room_type_id VARCHAR(10) PRIMARY KEY,
+  room_name VARCHAR(50),
+  room_price DECIMAL(10,2),
+  room_description VARCHAR(255)
+);
+
+
+CREATE TABLE staff (
+  staff_id VARCHAR(10) PRIMARY KEY,
+  staff_name VARCHAR(50),
+  staff_department VARCHAR(50),
+  staff_contact VARCHAR(20)
+);
+
+
+CREATE TABLE cancel (
+  cancel_id VARCHAR(10) PRIMARY KEY,
+  cancel_fee DECIMAL(10,2),
+  cancel_reason VARCHAR(200)
+);
+
+
+CREATE TABLE service_list (
+  service_id VARCHAR(10) PRIMARY KEY,
+  service_type VARCHAR(50),
+  service_price DECIMAL(10,2),
+  staff_id VARCHAR(10),
+  FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
+);
+
+
+
+CREATE TABLE room_list(
+  room_id VARCHAR(10) PRIMARY KEY,
+  floor_level INT,
+  floor_unit VARCHAR(3),
+  room_type_id VARCHAR(10),
+  FOREIGN KEY (room_type_id) REFERENCES room_type(room_type_id)
+);
+
+
+CREATE TABLE schedule (
+  schedule_id VARCHAR(10) PRIMARY KEY,
+  room_id VARCHAR(10),
+  service_id VARCHAR(10),
+  booked_date_from DATE,
+  booked_date_until DATE,
+  FOREIGN KEY (service_id) REFERENCES service_list(service_id),
+  FOREIGN KEY (room_id) REFERENCES room_list(room_id)
+);
+
+
+CREATE TABLE reservation (
+  reservation_id VARCHAR(10) PRIMARY KEY,
+  check_in_date DATE,
+  check_out_date DATE,
+  r_date DATE,
+  total_day INT,
+  cust_id VARCHAR(10),
+  schedule_id VARCHAR(10),
+  cancel_id VARCHAR(10),
+  FOREIGN KEY (cust_id) REFERENCES customers(cust_id),
+  FOREIGN KEY (schedule_id) REFERENCES schedule(schedule_id)
+);

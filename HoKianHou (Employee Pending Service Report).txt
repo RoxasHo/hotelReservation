@@ -1,0 +1,14 @@
+SET PAGESIZE 120;
+SET LINESIZE 160;
+
+COLUMN reservation_id FORMAT A15;
+
+TTITLE LEFT 'Employee Pending Service Report' 
+
+SELECT r.reservation_id, sc.room_id, s.staff_id, sl.service_type
+FROM customers c
+JOIN reservation r ON c.cust_id = r.cust_id
+JOIN schedule sc ON r.schedule_id = sc.schedule_id
+JOIN service_list sl ON sc.service_id = sl.service_id
+JOIN staff s ON sl.staff_id = s.staff_id
+JOIN room_list rl ON sc.room_id = rl.room_id;

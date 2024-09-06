@@ -1,0 +1,22 @@
+SET linesize 200
+SET pagesize 35
+
+ALTER SESSION SET NLS_DATE_FORMAT = 'dd/mm/yyyy';
+
+TTITLE CENTER 'Cancellation charge report.'
+BREAK ON TTITLE SKIP 1
+
+COLUMN reservation_id FORMAT A20
+COLUMN cust_id FORMAT A10
+COLUMN cust_name FORMAT A20
+COLUMN cancel_fee FORMAT 999.99
+COLUMN total_cancelation_charge_fee FORMAT 9999.99
+
+SELECT r.reservation_id, c.cust_id, c.cust_name, ca.cancel_fee, 0.1 * (r.total_day * rt.room_price) + ca.cancel_fee AS total_cancelation_charge_fee
+FROM reservation r
+JOIN customers c ON r.cust_id = c.cust_id
+JOIN schedule s ON r.schedule_id = s.schedule_id
+JOIN room_list rl ON s.room_id = rl.room_id
+JOIN room_type rt ON rl.room_type_id = rt.room_type_id
+JOIN service_list sl ON s.service_id = sl.service_id
+JOIN cancel ca ON r.cancel_id = ca.cancel_id;
